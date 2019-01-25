@@ -26,6 +26,36 @@ class Test_SNFU(unittest.TestCase):
 
         assert results is not None
         testdb.close()
+
+    def test_addition(self):
+        ''' Tests adding steamids from a group '''
+        
+        # Define Cursor
+        testdb = sqlite3.connect("databases/TestEnv.db")
+        crs = testdb.cursor()
+
+        # Initalize Database
+        groupsql.InitializeTables(crs)
+        testdb.commit()
+
+        # Add IDS from group to DB
+        groupsql.addIDSFromGroup(crs, "http://steamcommunity.com/groups/SteamLadder")
+        testdb.commit()
+
+        # Execute query to ensure it worked out
+        # select_query = open("queries/usergroups.sql").read()
+        select_query = "SELECT * FROM Groups"
+        
+        
+        crs.execute(select_query)
+        results = crs.fetchone()
+
+        print(results)
+        assert results is not None
+        testdb.close()
+
+
+
     
 
 

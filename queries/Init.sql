@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS GroupMemberships;
 DROP TABLE IF EXISTS Relationships;
 
 CREATE TABLE Users(
-    SteamId VarChar NOT NULL
+    steamid INTEGER NOT NULL,
+    UNIQUE(steamid)
 );
 
 CREATE TABLE Aliases(

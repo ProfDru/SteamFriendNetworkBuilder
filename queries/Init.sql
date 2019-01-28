@@ -23,6 +23,7 @@ CREATE TABLE Groups(
 CREATE TABLE GroupMemberships(
     userid INTEGER,
     groupid INTEGER,
+    distance INTEGER,
     FOREIGN KEY (userid) REFERENCES Users (ROWID),
     FOREIGN KEY (groupid) REFERENCES Groups (ROWID)
 );

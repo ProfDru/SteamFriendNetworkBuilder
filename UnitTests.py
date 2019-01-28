@@ -44,14 +44,9 @@ class Test_SNFU(unittest.TestCase):
 
         # Execute query to ensure it worked out
         select_query = open("queries/usergroups.sql").read()
-        # select_query = "SELECT * FROM Groups"
-        
-        
         crs.execute(select_query)
-
         results = crs.fetchall()
 
-        print(results)
         assert results is not None
         testdb.close()
 

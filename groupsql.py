@@ -37,10 +37,10 @@ def addIDSFromGroup(crsr, group_url):
 
     # Set up Queries
     add_user_query = "INSERT OR IGNORE INTO Users VALUES(?)"
-    add_group_members_query = "INSERT OR IGNORE INTO GroupMemberships VALUES(?, ?)"
+    add_group_members_query = "INSERT OR IGNORE INTO GroupMemberships VALUES(?, ?, ?)"
 
     # Iterate through list of steamids and add them to the DB
     for steamid in oneple_steamids:
         crsr.execute(add_user_query, steamid)
         k = crsr.lastrowid
-        crsr.execute(add_group_members_query, (k, groupid))
+        crsr.execute(add_group_members_query, (k, groupid, 0))

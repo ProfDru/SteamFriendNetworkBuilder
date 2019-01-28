@@ -43,11 +43,12 @@ class Test_SNFU(unittest.TestCase):
         testdb.commit()
 
         # Execute query to ensure it worked out
-        # select_query = open("queries/usergroups.sql").read()
-        select_query = "SELECT * FROM Groups"
+        select_query = open("queries/usergroups.sql").read()
+        # select_query = "SELECT * FROM Groups"
         
         
-        crs.execute(select_query)
+        crs.executescript(select_query)
+
         results = crs.fetchone()
 
         print(results)

@@ -43,4 +43,4 @@ def addIDSFromGroup(crsr, group_url):
     for steamid in oneple_steamids:
         crsr.execute(add_user_query, steamid)
         k = crsr.lastrowid
-        crsr.execute(add_group_members_query, (groupid, k))
+        crsr.execute(add_group_members_query, (k, groupid))

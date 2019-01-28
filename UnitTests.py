@@ -47,9 +47,9 @@ class Test_SNFU(unittest.TestCase):
         # select_query = "SELECT * FROM Groups"
         
         
-        crs.executescript(select_query)
+        crs.execute(select_query)
 
-        results = crs.fetchone()
+        results = crs.fetchall()
 
         print(results)
         assert results is not None

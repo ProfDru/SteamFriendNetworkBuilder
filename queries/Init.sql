@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS Relationships;
 
 CREATE TABLE Users(
     steamid INTEGER NOT NULL,
+    last_scanned DATETIME,
     UNIQUE(steamid)
 );
 
